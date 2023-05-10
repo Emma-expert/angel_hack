@@ -12,7 +12,7 @@ const runners = [
   let winner = '';
   
   runners.forEach(runner => {
-    let distance = 0;
+    let rundistance = 0;
     let time = 0;
     let isResting = false;
   
@@ -27,8 +27,8 @@ const runners = [
         const lastCycleTime = remainingTime % runCycleTime;
         const lastRunTime = Math.min(lastCycleTime, runner.runTime);
   
-        distance += fullCycles * runner.speed * runner.runTime;
-        distance += lastRunTime * runner.speed;
+        rundistance += fullCycles * runner.speed * runner.runTime;
+        rundistance += lastRunTime * runner.speed;
   
         time += fullCycles * runCycleTime;
         time += lastCycleTime;
@@ -36,11 +36,11 @@ const runners = [
       }
     }
   
-    if (distance > maxDistance) {
-      maxDistance = distance;
-      winner = runner.name;
+    if (rundistance > maxDistance) {
+      maxDistance = rundistance;
+      racewinner = runner.name;
     }
   });
   
-  console.log(`${winner}  was a winner with a distance of ${maxDistance}m.`);
+  console.log(`${racewinner}  was a winner with a distance of ${maxDistance}m.`);
   
